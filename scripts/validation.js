@@ -2,11 +2,11 @@
     'use strict';
     var App = window.App || {};
     var Validation = {
-        isCompanyEmail: function(email) {
+        isCompanyEmail: function (email) {
             return /.+@starfleet\.com$/.test(email);
-                
+
         }
     };
     App.Validation = Validation;
     window.App = App;
-   })(window);
+})(window);

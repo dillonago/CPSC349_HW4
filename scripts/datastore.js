@@ -1,4 +1,4 @@
-(function (window){
+(function (window) {
     'use strict';
     var App = window.App || {};
     var Promise = window.Promise;
@@ -12,7 +12,7 @@
 
         promiseResolvedWith(value) {
             var promise = new Promise(function (resolve, reject) {
-            resolve(value);
+                resolve(value);
             });
             return promise;
         }

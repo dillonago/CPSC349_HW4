@@ -1,9 +1,9 @@
 (function (window) {
- 'use strict';
- var App = window.App || {};
- var $ = window.jQuery;
+    'use strict';
+    var App = window.App || {};
+    var $ = window.jQuery;
 
- class RemoteDataStore {
+    class RemoteDataStore {
         constructor(url) {
             console.log('running the RemoteDataStore constructor.');
             if (!url) {
@@ -15,35 +15,35 @@
         add(key, val) {
             return $.post(this.serverUrl, val, function (serverResponse) {
                 console.log(serverResponse);
-                });
+            });
         }
 
-        getAll(cb){
+        getAll(cb) {
             return $.get(this.serverUrl, function (serverResponse) {
-                if(cb){
-                console.log(serverResponse);
-                cb(serverResponse);
+                if (cb) {
+                    console.log(serverResponse);
+                    cb(serverResponse);
                 }
-                });
+            });
         }
 
-        get(key, cb){
+        get(key, cb) {
             return $.get(this.serverUrl + '/' + key, function (serverResponse) {
-                if(cb){
-                console.log(serverResponse);
-                cb(serverResponse);
+                if (cb) {
+                    console.log(serverResponse);
+                    cb(serverResponse);
                 }
-                });
+            });
         }
 
-        remove(key){
+        remove(key) {
             return $.ajax(this.serverUrl + '/' + key, {
                 type: 'DELETE'
             });
         }
     }
 
-    
- App.RemoteDataStore = RemoteDataStore;
- window.App = App;
+
+    App.RemoteDataStore = RemoteDataStore;
+    window.App = App;
 })(window);
